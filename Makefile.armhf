@@ -1,0 +1,13 @@
+IMAGE = nginx-proxy
+REPOSITORY_IMAGE = armhfbuild/nginx-proxy
+
+default: build tag
+
+build:
+	docker build -t $(IMAGE) .
+
+tag:
+	docker tag -f $(IMAGE) $(REPOSITORY_IMAGE)
+
+push:
+	docker push $(REPOSITORY_IMAGE)
